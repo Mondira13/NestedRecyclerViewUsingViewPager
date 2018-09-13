@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class HorizontalRecylerAdapter extends RecyclerView.Adapter<HorizontalRecylerAdapter.HorizontalRecyclerAdapterViewHolder>{
+public class HorizontalRecylerAdapter extends RecyclerView.Adapter<HorizontalRecylerAdapter.HorizontalRecyclerAdapterViewHolder> {
 
     private final Context context;
     private final List<ItemsList> itemsList;
@@ -49,7 +49,47 @@ public class HorizontalRecylerAdapter extends RecyclerView.Adapter<HorizontalRec
         return itemsList.size();
     }
 
-    public class HorizontalRecyclerAdapterViewHolder extends RecyclerView.ViewHolder {
+//
+//    @Override
+//    public int getItemViewType(int position) {
+//
+//        switch (itemsList.get(position).type) {
+//            case 0:
+//                return CardViewModels.IMAGE_TEXT_TYPE;
+//
+//            case 1:
+//                return CardViewModels.TEXT_TYPE;
+//
+//            case 2:
+//                return CardViewModels.IMAGE_TYPE;
+//
+//            default:
+//                return -1;
+//        }
+//    }
+//    @Override
+//    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//
+//        View view;
+//        switch (viewType) {
+//            case CardViewModels.IMAGE_TEXT_TYPE:
+//                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_representation_layout, parent, false);
+//                return new ViewHolderImageWithText(view);
+//
+//            case CardViewModels.TEXT_TYPE:
+//                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_text_layout, parent, false);
+//                return new ViewHolderText(view);
+//
+//            case CardViewModels.IMAGE_TYPE:
+//                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_image_layout, parent, false);
+//                return new ViewHolderImage(view);
+//        }
+//        return null;
+//    }
+
+
+
+  public class HorizontalRecyclerAdapterViewHolder extends RecyclerView.ViewHolder {
 
         ImageView itemIcons;
         TextView itemName;
@@ -60,4 +100,39 @@ public class HorizontalRecylerAdapter extends RecyclerView.Adapter<HorizontalRec
             itemName = view.findViewById(R.id.itemName);
         }
     }
+
+
+//    --------------------------------------------------------------------------------------------------------
+
+//
+//    public class ViewHolderImageWithText extends RecyclerView.ViewHolder {
+//
+//        ImageView itemIcons;
+//        TextView itemName;
+//
+//        public ViewHolderImageWithText(View view) {
+//            super(view);
+//            itemIcons = view.findViewById(R.id.itemIcon);
+//            itemName = view.findViewById(R.id.itemName);
+//        }
+//    }
+//
+//    public class ViewHolderText extends RecyclerView.ViewHolder {
+//        TextView textView;
+//
+//        public ViewHolderText(View itemView) {
+//            super(itemView);
+//            textView = itemView.findViewById(R.id.recyclerText);
+//        }
+//    }
+//
+//    public class ViewHolderImage extends RecyclerView.ViewHolder {
+//        ImageView imageView;
+//
+//        public ViewHolderImage(View itemView) {
+//            super(itemView);
+//            imageView = itemView.findViewById(R.id.recyclerImage);
+//        }
+//    }
 }
+
