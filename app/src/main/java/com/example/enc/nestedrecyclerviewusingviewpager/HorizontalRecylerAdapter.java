@@ -37,15 +37,16 @@ public class HorizontalRecylerAdapter extends RecyclerView.Adapter<HorizontalRec
     @Override
     public void onBindViewHolder(@NonNull HorizontalRecyclerAdapterViewHolder holder, int position) {
 
-        String title = itemsList.get(position).getName();
-        String images = itemsList.get(position).getImage();
+        String title = itemsList.get(position).getImage();  // getImage() method retrive name
+        String images = itemsList.get(position).getName();  // getName() method retrive images
         holder.itemName.setText(title);
         Picasso.get().load(images).into(holder.itemIcons);
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return itemsList.size();
     }
 
     public class HorizontalRecyclerAdapterViewHolder extends RecyclerView.ViewHolder {

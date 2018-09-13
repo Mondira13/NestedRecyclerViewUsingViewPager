@@ -1,6 +1,6 @@
 package com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk;
 
-import com.example.enc.nestedrecyclerviewusingviewpager.models.HorizontalRecyclerItemsResponse;
+import com.example.enc.nestedrecyclerviewusingviewpager.models.RecyclerItemsResponse;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.TabNamesResponse;
 
 import retrofit2.Call;
@@ -12,8 +12,8 @@ public interface Service {
     Call<TabNamesResponse> retriveTabNameValues();
 
 
-    @GET("/bins/l8v20")
-    Call<HorizontalRecyclerItemsResponse> retriveHorizontalRecyclerDataValues();
+    @GET("/bins/tpfk8")
+    Call<RecyclerItemsResponse> retriveHorizontalRecyclerDataValues();
 
 
 
@@ -29,6 +29,8 @@ public interface Service {
 
 
 
-//   https://api.myjson.com/bins/l8v20
+
+//  https://api.myjson.com/bins/tpfk8
 }
 
+//https://api.myjson.com/bins/xtr2g

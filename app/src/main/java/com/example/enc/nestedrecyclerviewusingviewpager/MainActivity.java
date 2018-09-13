@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BaseVerticalFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BooksFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.GamesFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.HomeFragment;
@@ -23,7 +24,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
-        implements HomeFragment.OnFragmentInteractionListener,
+        implements BaseVerticalFragment.OnFragmentInteractionListener,
+//        HomeFragment.OnFragmentInteractionListener,
         GamesFragment.OnFragmentInteractionListener,
         MoviesFragment.OnFragmentInteractionListener,
         BooksFragment.OnFragmentInteractionListener
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity
             }
             @Override
             public void onFailure(Call<TabNamesResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Failure..!!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Failure..!!! Tab name not uploaded..", Toast.LENGTH_LONG).show();
                 call.cancel();
 
             }

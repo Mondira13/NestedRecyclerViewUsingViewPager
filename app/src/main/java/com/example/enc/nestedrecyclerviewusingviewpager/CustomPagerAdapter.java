@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BaseVerticalFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BooksFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.GamesFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.HomeFragment;
@@ -29,16 +30,20 @@ public class CustomPagerAdapter  extends FragmentStatePagerAdapter {
         Fragment item = null;
         switch (retrievedData.get(i).getName()) {
             case "Home":
-                item = new HomeFragment();
+//                item = new HomeFragment();
+                item = new BaseVerticalFragment();
                 break;
             case "Games":
-                item = new GamesFragment();
+//                item = new GamesFragment();
+                item = new BaseVerticalFragment();
                 break;
             case "Movies":
-                item = new MoviesFragment();
+//                item = new MoviesFragment();
+                item = new BaseVerticalFragment();
                 break;
             case "Books":
-                item = new BooksFragment();
+//                item = new BooksFragment();
+                item = new BaseVerticalFragment();
                 break;
             default:
                 break;
