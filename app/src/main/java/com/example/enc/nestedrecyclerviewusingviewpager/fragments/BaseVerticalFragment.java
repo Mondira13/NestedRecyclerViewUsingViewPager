@@ -99,58 +99,6 @@ public class BaseVerticalFragment extends Fragment {
         verticalRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         MainRecyclerAdapter mainRecyclerAdapter = new MainRecyclerAdapter(getContext());
         verticalRecyclerView.setAdapter(mainRecyclerAdapter);
-//
-//
-//        Call<RecyclerItemsResponse> call = service.retriveVerticalRecyclerDataValues();
-//        call.enqueue(new Callback<RecyclerItemsResponse>() {
-//            @Override
-//            public void onResponse(Call<RecyclerItemsResponse> call, Response<RecyclerItemsResponse> response) {
-//
-//                MainRecyclerAdapter mainRecyclerAdapter = new MainRecyclerAdapter(getContext(),response.body().getItemLists());
-//                verticalRecyclerView.setAdapter(mainRecyclerAdapter);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<RecyclerItemsResponse> call, Throwable t) {
-//                call.cancel();
-//            }
-//        });
-
-
-
-
-
-   /*     // horizontal recycler view operation
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        horizontalRecyclerView.setLayoutManager(layoutManager);
-
-        Call<RecyclerItemsResponse> call1 = service.retriveHorizontalRecyclerDataValues();
-        call1.enqueue(new Callback<RecyclerItemsResponse>() {
-            @Override
-            public void onResponse(Call<RecyclerItemsResponse> call, Response<RecyclerItemsResponse> response) {
-
-                HorizontalRecylerAdapter horizontalRecylerAdapter = new HorizontalRecylerAdapter(getActivity(), response.body().getItemLists());
-                horizontalRecyclerView.setAdapter(horizontalRecylerAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<RecyclerItemsResponse> call, Throwable t) {
-                call.cancel();
-            }
-        });
-
-
-*/
-
-
-
-
-
-
-
-
-
-
 
 
     }

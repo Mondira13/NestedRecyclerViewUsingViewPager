@@ -11,6 +11,7 @@ public class ItemsList {
     @Expose
     private String name;
 
+
     public String getImage() {
         return image;
     }
