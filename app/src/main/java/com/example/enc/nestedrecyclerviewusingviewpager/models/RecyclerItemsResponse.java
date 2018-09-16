@@ -6,16 +6,28 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class RecyclerItemsResponse {
-    @SerializedName("itemLists")
-    @Expose
-    private List<ItemsList> itemLists = null;
 
-    public List<ItemsList> getItemLists() {
-        return itemLists;
+    @SerializedName("result")
+    @Expose
+    private String result;
+    @SerializedName("itemList")
+    @Expose
+    private List<ItemList> itemList = null;
+
+    public String getResult() {
+        return result;
     }
 
-    public void setItemLists(List<ItemsList> itemLists) {
-        this.itemLists = itemLists;
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public List<ItemList> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<ItemList> itemList) {
+        this.itemList = itemList;
     }
 
 }

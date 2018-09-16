@@ -12,16 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.enc.nestedrecyclerviewusingviewpager.HorizontalRecylerAdapter;
 import com.example.enc.nestedrecyclerviewusingviewpager.MainRecyclerAdapter;
 import com.example.enc.nestedrecyclerviewusingviewpager.R;
-import com.example.enc.nestedrecyclerviewusingviewpager.models.RecyclerItemsResponse;
+import com.example.enc.nestedrecyclerviewusingviewpager.models.ItemList;
 import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.NestedRecyclerViewUsingViewPagerSDK;
 import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.Service;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,7 +39,6 @@ public class BaseVerticalFragment extends Fragment {
     private String mParam2;
 
     RecyclerView verticalRecyclerView;
-    RecyclerView horizontalRecyclerView;
     Service service;
 
 
@@ -92,12 +88,12 @@ public class BaseVerticalFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         verticalRecyclerView = view.findViewById(R.id.verticalRecyclerView);
-
         service = NestedRecyclerViewUsingViewPagerSDK.getClient().create(Service.class);
+        List<ItemList> itemsList = null;
 
         // vertical recycler view operation
         verticalRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        MainRecyclerAdapter mainRecyclerAdapter = new MainRecyclerAdapter(getContext());
+        MainRecyclerAdapter mainRecyclerAdapter = new MainRecyclerAdapter(getContext(), itemsList);
         verticalRecyclerView.setAdapter(mainRecyclerAdapter);
 
 

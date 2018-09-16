@@ -3,14 +3,17 @@ package com.example.enc.nestedrecyclerviewusingviewpager.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ItemsList {
+/**
+ * Created by mondira on 16-Sep-18.
+ */
+
+public class SubList {
     @SerializedName("image")
     @Expose
     private String image;
     @SerializedName("name")
     @Expose
     private String name;
-
 
     public String getImage() {
         return image;

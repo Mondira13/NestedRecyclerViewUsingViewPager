@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.enc.nestedrecyclerviewusingviewpager.models.ItemsList;
+import com.example.enc.nestedrecyclerviewusingviewpager.models.ItemList;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.RecyclerItemsResponse;
 import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.NestedRecyclerViewUsingViewPagerSDK;
 import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.Service;
@@ -22,12 +22,12 @@ import retrofit2.Response;
 public class MainRecyclerAdapter  extends RecyclerView.Adapter<MainRecyclerAdapter.MainRecyclerAdapterViewHolder>{
 
     private final Context context;
-//    RecyclerView horizontalRecyclerView;
+    private final List<ItemList> itemsList;
     Service service;
 
-    public MainRecyclerAdapter(Context context) {
+    public MainRecyclerAdapter(Context context, List<ItemList> itemsList) {
         this.context = context;
-
+        this.itemsList = itemsList;
     }
 
     @NonNull
@@ -51,8 +51,11 @@ public class MainRecyclerAdapter  extends RecyclerView.Adapter<MainRecyclerAdapt
             @Override
             public void onResponse(Call<RecyclerItemsResponse> call, Response<RecyclerItemsResponse> response) {
 
-                HorizontalRecylerAdapter horizontalRecylerAdapter = new HorizontalRecylerAdapter(context, response.body().getItemLists());
-                holder.horizontalRecyclerView.setAdapter(horizontalRecylerAdapter);
+                if(response.body().getResult().equals("success")){
+                    HorizontalRecylerAdapter horizontalRecylerAdapter;
+                    horizontalRecylerAdapter = new HorizontalRecylerAdapter(context, response.body().getItemList());
+                    holder.horizontalRecyclerView.setAdapter(horizontalRecylerAdapter);
+                }
             }
 
             @Override
@@ -60,13 +63,11 @@ public class MainRecyclerAdapter  extends RecyclerView.Adapter<MainRecyclerAdapt
                 call.cancel();
             }
         });
-
-
     }
 
     @Override
     public int getItemCount() {
-        return 6;
+        return 3;
     }
 
     public class MainRecyclerAdapterViewHolder extends RecyclerView.ViewHolder {
