@@ -5,11 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BaseVerticalFragment;
-import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BooksFragment;
-import com.example.enc.nestedrecyclerviewusingviewpager.fragments.GamesFragment;
-import com.example.enc.nestedrecyclerviewusingviewpager.fragments.HomeFragment;
-import com.example.enc.nestedrecyclerviewusingviewpager.fragments.MoviesFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.Item;
+import com.example.enc.nestedrecyclerviewusingviewpager.models.ItemList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +15,13 @@ public class CustomPagerAdapter  extends FragmentStatePagerAdapter {
 
     private final List<Item> retrievedData;
     List<Fragment> fragments = new ArrayList<>();
+//    private final List<ItemList> itemLists;
+
 
 
     public CustomPagerAdapter(FragmentManager supportFragmentManager, List<Item> retrievedData) {
         super(supportFragmentManager);
-       this.retrievedData = retrievedData;
+        this.retrievedData = retrievedData;
     }
 
     @Override

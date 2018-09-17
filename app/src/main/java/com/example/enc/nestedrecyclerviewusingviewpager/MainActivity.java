@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BaseVerticalFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BooksFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.GamesFragment;
-import com.example.enc.nestedrecyclerviewusingviewpager.fragments.HomeFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.MoviesFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.Item;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.TabNamesResponse;
@@ -23,13 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity
-        implements BaseVerticalFragment.OnFragmentInteractionListener,
-//        HomeFragment.OnFragmentInteractionListener,
-        GamesFragment.OnFragmentInteractionListener,
-        MoviesFragment.OnFragmentInteractionListener,
-        BooksFragment.OnFragmentInteractionListener
-{
+public class MainActivity extends AppCompatActivity implements BaseVerticalFragment.OnFragmentInteractionListener {
 
     ViewPager viewPager; // ViewPager allows the user to flip left and right through pages of data.
     private TabLayout tabLayout;
