@@ -15,48 +15,169 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class HorizontalRecylerAdapter extends RecyclerView.Adapter<HorizontalRecylerAdapter.HorizontalRecyclerAdapterViewHolder> {
+public class HorizontalRecylerAdapter extends RecyclerView.Adapter {
 
     private final Context context;
-    private final List<SubList> subList;
+    private final List<ItemList> itemList;
+//    String type;
+//    final int IT=0,TT=0,ITT=0;
 
-    public HorizontalRecylerAdapter(Context context, List<SubList> subList) {
+    public HorizontalRecylerAdapter(Context context, List<ItemList> itemList) {
         this.context = context;
-        this.subList = subList;
+        this.itemList = itemList;
     }
 
     @NonNull
     @Override
-    public HorizontalRecyclerAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.recycler_representation_layout, parent, false);
-        return new HorizontalRecyclerAdapterViewHolder(view);
+        return new HorizontalImageWithTextViewHolder(view);
+
+//        View view = null;
+//        if(type.equals("Image")){
+//            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_image_layout, parent, false);
+//                return new HorizontalImageViewHolder(view);
+//        }
+//        else if(type.equals("Text")){
+//            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_text_layout, parent, false);
+//                return new HorizontalTextViewHolder(view);
+//        }
+//        else if(type.equals("ImageWithText")){
+//            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.vertical_recycler_representation_layout, parent, false);
+//                return new HorizontalImageWithTextViewHolder(view);
+//        }
+//        switch (viewType) {
+//            case type:
+//                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_image_layout, parent, false);
+//                return new HorizontalImageViewHolder(view);
+//            case type:
+//                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_text_layout, parent, false);
+//                return new HorizontalTextViewHolder(view);
+//            case type:
+//                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.vertical_recycler_representation_layout, parent, false);
+//                return new HorizontalImageWithTextViewHolder(view);
+//        }
+//         return null;
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HorizontalRecyclerAdapterViewHolder holder, int position) {
-        String title = subList.get(position).getName();
-        String images = subList.get(position).getImage();
-        holder.itemName.setText(title);
-        Picasso.get().load(images).into(holder.itemIcons);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+//        String title = itemList.get(position).getSubList().get(position).getName();
+//        String images = itemList.get(position).getSubList().get(position).getImage();
+//        holder.itemName.setText(title);
+//        Picasso.get().load(images).into(holder.itemIcons);
     }
 
     @Override
     public int getItemCount() {
-        return subList.size();
+        return itemList.size();
     }
 
 
-    public class HorizontalRecyclerAdapterViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView itemIcons;
+
+//    @Override
+//    public int getItemViewType(int position) {
+//
+//        switch (itemList.size()) {
+//            case 0:
+//                return ModelType.IMAGE_TYPE;
+//            case 1:
+//                return ModelType.TEXT_TYPE;
+//            case 2:
+//                return ModelType.IMAGE_TEXT_TYPE;
+//            default:
+//                return -1;
+//        }
+//    }
+
+
+//    @Override
+//    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
+//        if(type.equals("Image")){
+//            String image = itemList.get(position).getItemImage();
+//            Picasso.get().load(image).into(((HorizontalImageViewHolder) holder).imageView);
+//        }else if(type.equals("Text")){
+//            String title1 = itemList.get(position).getItemText();
+//            ((HorizontalTextViewHolder) holder).textView.setText(title1);
+//        }
+//        else if(type.equals("ImageWithText")){
+//            String title = itemList.get(position).getSubList().get(position).getName();
+//            String images = itemList.get(position).getSubList().get(position).getImage();
+//            ((HorizontalImageWithTextViewHolder) holder).itemName.setText(title);
+//            Picasso.get().load(images).into(holder.itemIcon);
+
+
+
+
+
+//        ItemList object = itemList.get(position);
+//        if (object != null) {
+//            switch (position) {
+//                case ModelType.IMAGE_TYPE:
+//                    String image = itemList.get(position).getItemImage();
+//                    Picasso.get().load(image).into(((HorizontalImageViewHolder) holder).imageView);
+//                    break;
+//                case ModelType.TEXT_TYPE:
+//                    String title1 = itemList.get(position).getItemText();
+//                    ((HorizontalTextViewHolder) holder).textView.setText(title1);
+//                    break;
+//                case ModelType.IMAGE_TEXT_TYPE:
+//                    String title = itemList.get(position).getSubList().get(position).getName();
+//                    String images = itemList.get(position).getSubList().get(position).getImage();
+//                    ((HorizontalImageWithTextViewHolder) holder).itemName.setText(title);
+//                    Picasso.get().load(images).into(((HorizontalImageWithTextViewHolder) holder).itemIcons);
+//            }
+//
+//        }
+
+//    }
+
+//    @Override
+//    public void onBindViewHolder(@NonNull HorizontalImageWithTextViewHolder holder, int position) {
+//        String title = itemList.get(position).getSubList().get(position).getName();
+//        String images = itemList.get(position).getSubList().get(position).getImage();
+//        holder.itemName.setText(title);
+//        Picasso.get().load(images).into(holder.itemIcons);
+//    }
+
+
+
+
+//--------------------------------------------------------------------------------------------------
+
+
+//    private class HorizontalImageViewHolder extends RecyclerView.ViewHolder {
+//        ImageView imageView;
+//
+//        public HorizontalImageViewHolder(View view) {
+//            super(view);
+//            imageView = view.findViewById(R.id.recyclerImageViewId);
+//        }
+//
+//    }
+//
+//    private class HorizontalTextViewHolder extends RecyclerView.ViewHolder {
+//        TextView textView;
+//
+//        public HorizontalTextViewHolder(View view) {
+//            super(view);
+//            textView = view.findViewById(R.id.recyclerTextviewId);
+//        }
+//    }
+
+    public class HorizontalImageWithTextViewHolder extends RecyclerView.ViewHolder {
+         ImageView itemIcons;
         TextView itemName;
 
-        public HorizontalRecyclerAdapterViewHolder(View view) {
+        public HorizontalImageWithTextViewHolder(View view) {
             super(view);
             itemIcons = view.findViewById(R.id.itemIcon);
             itemName = view.findViewById(R.id.itemName);
         }
     }
 }
+
