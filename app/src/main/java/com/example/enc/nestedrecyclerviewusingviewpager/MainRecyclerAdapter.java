@@ -1,6 +1,7 @@
 package com.example.enc.nestedrecyclerviewusingviewpager;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.enc.nestedrecyclerviewusingviewpager.models.ItemList;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.RecyclerItemsResponse;
@@ -17,6 +19,7 @@ import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingv
 import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.Service;
 import com.squareup.picasso.Picasso;
 
+import java.net.URI;
 import java.util.List;
 
 import retrofit2.Call;
@@ -30,8 +33,9 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     String type = null;
 
     private static final int VIEW_TYPE_IMAGE = 0;
-    private static final int VIEW_TYPE_TEXT = 1;
-    private static final int VIEW_TYPE_IMAGE_WITH_TEXT = 2;
+    private static final int VIEW_TYPE_VIDEO = 1;
+    private static final int VIEW_TYPE_TEXT = 2;
+    private static final int VIEW_TYPE_IMAGE_WITH_TEXT = 3;
 
     public MainRecyclerAdapter(Context context, List<ItemList> itemLists) {
         this.context = context;
@@ -47,6 +51,9 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             case VIEW_TYPE_IMAGE:
                 return new MainRecyclerAdapterViewHolder(layoutInflater.inflate(
                         R.layout.recycler_image_layout, parent, false), viewType);
+            case VIEW_TYPE_VIDEO:
+                return new MainRecyclerAdapterViewHolder(layoutInflater.inflate(
+                        R.layout.recycler_video_layout, parent, false), viewType);
             case VIEW_TYPE_TEXT:
                 return new MainRecyclerAdapterViewHolder(layoutInflater.inflate(
                         R.layout.recycler_text_layout, parent, false), viewType);
@@ -66,6 +73,12 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
                 String image = itemLists.get(position).getItemImage();
                 Picasso.get().load(image).into(holder.recyclerImageView);
                 break;
+            case VIEW_TYPE_VIDEO:
+                String video=itemLists.get(position).getItemVideo();
+                Uri videoUri = Uri.parse(video);
+                holder.videoView.setVideoURI(videoUri);
+                holder.videoView.start();
+                break;
             case VIEW_TYPE_TEXT:
                 String title = itemLists.get(position).getItemText();
                 holder.recyclerTextview.setText(title);
@@ -78,19 +91,6 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
             default:
                 break;
         }
-//        if (itemLists.get(position).getType().equals("Image")) {
-//            type = "Image";
-//            HorizontalRecyclerAdapterNew horizontalRecyclerAdapterNew = new HorizontalRecyclerAdapterNew(context, itemLists, type);
-//            holder.horizontalRecyclerView.setAdapter(horizontalRecyclerAdapterNew);
-//        } else if (itemLists.get(position).getType().equals("Text")) {
-//            type = "Text";
-//            HorizontalRecyclerAdapterNew horizontalRecyclerAdapterNew = new HorizontalRecyclerAdapterNew(context, itemLists, type);
-//            holder.horizontalRecyclerView.setAdapter(horizontalRecyclerAdapterNew);
-//        } else if (itemLists.get(position).getType().equals("ImageWithText")) {
-//            type = "ImageWithText";
-//            HorizontalRecyclerAdapterNew horizontalRecyclerAdapterNew = new HorizontalRecyclerAdapterNew(context, itemLists, type);
-//            holder.horizontalRecyclerView.setAdapter(horizontalRecyclerAdapterNew);
-//        }
     }
 
     @Override
@@ -98,6 +98,8 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         switch (itemLists.get(position).getType()) {
             case "Image":
                 return VIEW_TYPE_IMAGE;
+            case "Video":
+                return VIEW_TYPE_VIDEO;
             case "Text":
                 return VIEW_TYPE_TEXT;
             case "ImageWithText":
@@ -107,36 +109,10 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         }
     }
 
-    //    @Override
-//    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-
-//        if (type.equals("Image")) {
-//            String image = itemList.get(position).getItemImage();
-//            Picasso.get().load(image).into(((RecyclerImageAdapter.HorizontalImageViewHolder) holder).imageView);
-//        } else if (type.equals("Text")) {
-//            String title1 = itemList.get(position).getItemText();
-//            ((RecyclerImageAdapter.HorizontalTextViewHolder) holder).textView.setText(title1);
-//        } else if (type.equals("ImageWithText")) {
-//            RecyclerImageTextAdapter recyclerImageTextAdapter = new RecyclerImageTextAdapter(context, subLists);
-//            holder.horizontalRecyclerView.setAdapter(recyclerImageTextAdapter);
-////            String title = itemList.get(position).getSubList().get(position).getName();
-////            String images = itemList.get(position).getSubList().get(position).getImage();
-////            ((RecyclerImageAdapter.HorizontalImageWithTextViewHolder) holder).itemName.setText(title);
-////            Picasso.get().load(images).into(((RecyclerImageAdapter.HorizontalImageWithTextViewHolder) holder).itemIcons);
-//        }
-//    }
 
 //    @Override
 //    public void onBindViewHolder(@NonNull final MainRecyclerAdapterViewHolder holder, final int position) {
-//
-//        RecyclerImageAdapter recyclerImageTextAdapter = new RecyclerImageAdapter(context, itemLists,type);
-//        holder.horizontalRecyclerView.setAdapter(recyclerImageTextAdapter);
-
-
-//        HorizontalRecylerAdapter horizontalRecylerAdapter = new HorizontalRecylerAdapter(context,itemLists);
-//        holder.horizontalRecyclerView.setAdapter(horizontalRecylerAdapter);
-
 //        if (itemLists.get(position).getType().equals("ImageWithText")) {
 //            holder.textView.setVisibility(View.GONE);
 //            holder.imageView.setVisibility(View.GONE);
@@ -158,6 +134,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 //        }
 //    }
 
+
     @Override
     public int getItemCount() {
         return itemLists.size();
@@ -168,12 +145,16 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         private ImageView recyclerImageView;
         private TextView recyclerTextview;
         public RecyclerView horizontalRecyclerView;
+        public VideoView videoView;
 
         public MainRecyclerAdapterViewHolder(View itemView, int itemViewType) {
             super(itemView);
             switch (itemViewType) {
                 case VIEW_TYPE_IMAGE:
                     recyclerImageView = itemView.findViewById(R.id.recyclerImageViewId);
+                    break;
+                case VIEW_TYPE_VIDEO:
+                    videoView = itemView.findViewById(R.id.recyclerVideoId);
                     break;
                 case VIEW_TYPE_TEXT:
                     recyclerTextview = itemView.findViewById(R.id.recyclerTextviewId);

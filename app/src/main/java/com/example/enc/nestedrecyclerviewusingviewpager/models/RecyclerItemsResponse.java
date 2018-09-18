@@ -29,5 +29,4 @@ public class RecyclerItemsResponse {
     public void setItemList(List<ItemList> itemList) {
         this.itemList = itemList;
     }
-
 }

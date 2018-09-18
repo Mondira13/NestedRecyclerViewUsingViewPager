@@ -16,6 +16,9 @@ public class ItemList {
     @SerializedName("type")
     @Expose
     private String type;
+    @SerializedName("itemVideo")
+    @Expose
+    private String itemVideo;
     @SerializedName("itemText")
     @Expose
     private String itemText;
@@ -39,6 +42,14 @@ public class ItemList {
         this.type = type;
     }
 
+    public String getItemVideo() {
+        return itemVideo;
+    }
+
+    public void setItemVideo(String itemVideo) {
+        this.itemVideo = itemVideo;
+    }
+
     public String getItemText() {
         return itemText;
     }
@@ -54,4 +65,5 @@ public class ItemList {
     public void setSubList(List<SubList> subList) {
         this.subList = subList;
     }
+
 }
