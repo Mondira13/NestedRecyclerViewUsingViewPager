@@ -12,7 +12,7 @@ public interface Service {
     Call<TabNamesResponse> retriveTabNameValues();
 
 
-    @GET("/bins/18hqg4")
+    @GET("/bins/1193nb")
     Call<RecyclerItemsResponse> retriveHorizontalRecyclerDataValues();
 
 
@@ -20,10 +20,9 @@ public interface Service {
 
 
 
-//   https://api.myjson.com/bins/18hqg4      (add video here)
+//   https://api.myjson.com/bins/18hqg4   (add video here) previous used link
 
-
-
+//   https://api.myjson.com/bins/1193nb   (modified json link which is used currently)
 
 
 //    https://api.myjson.com/bins/tqkgg
