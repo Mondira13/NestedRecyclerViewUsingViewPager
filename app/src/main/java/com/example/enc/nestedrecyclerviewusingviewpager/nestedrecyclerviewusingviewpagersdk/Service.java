@@ -1,7 +1,7 @@
 package com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk;
 
-import com.example.enc.nestedrecyclerviewusingviewpager.models.RecyclerItemsResponse;
-import com.example.enc.nestedrecyclerviewusingviewpager.models.TabNamesResponse;
+import com.example.enc.nestedrecyclerviewusingviewpager.response.RecyclerItemsResponse;
+import com.example.enc.nestedrecyclerviewusingviewpager.response.TabNamesResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

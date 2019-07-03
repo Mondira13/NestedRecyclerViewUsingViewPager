@@ -1,4 +1,4 @@
-package com.example.enc.nestedrecyclerviewusingviewpager;
+package com.example.enc.nestedrecyclerviewusingviewpager.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

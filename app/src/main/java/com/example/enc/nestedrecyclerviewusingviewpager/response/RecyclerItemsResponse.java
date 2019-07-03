@@ -1,5 +1,6 @@
-package com.example.enc.nestedrecyclerviewusingviewpager.models;
+package com.example.enc.nestedrecyclerviewusingviewpager.response;
 
+import com.example.enc.nestedrecyclerviewusingviewpager.models.ItemList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

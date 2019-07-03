@@ -1,4 +1,4 @@
-package com.example.enc.nestedrecyclerviewusingviewpager;
+package com.example.enc.nestedrecyclerviewusingviewpager.adapter;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,19 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.example.enc.nestedrecyclerviewusingviewpager.R;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.ItemList;
-import com.example.enc.nestedrecyclerviewusingviewpager.models.RecyclerItemsResponse;
-import com.example.enc.nestedrecyclerviewusingviewpager.models.SubList;
-import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.NestedRecyclerViewUsingViewPagerSDK;
-import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.Service;
 import com.squareup.picasso.Picasso;
 
-import java.net.URI;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.MainRecyclerAdapterViewHolder> {
 

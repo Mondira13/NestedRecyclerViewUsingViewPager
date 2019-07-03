@@ -12,10 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.enc.nestedrecyclerviewusingviewpager.MainRecyclerAdapter;
+import com.example.enc.nestedrecyclerviewusingviewpager.adapter.MainRecyclerAdapter;
 import com.example.enc.nestedrecyclerviewusingviewpager.R;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.ItemList;
-import com.example.enc.nestedrecyclerviewusingviewpager.models.RecyclerItemsResponse;
+import com.example.enc.nestedrecyclerviewusingviewpager.response.RecyclerItemsResponse;
 import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.NestedRecyclerViewUsingViewPagerSDK;
 import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.Service;
 

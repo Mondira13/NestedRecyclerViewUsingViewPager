@@ -7,12 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.enc.nestedrecyclerviewusingviewpager.adapter.CustomPagerAdapter;
 import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BaseVerticalFragment;
-import com.example.enc.nestedrecyclerviewusingviewpager.fragments.BooksFragment;
-import com.example.enc.nestedrecyclerviewusingviewpager.fragments.GamesFragment;
-import com.example.enc.nestedrecyclerviewusingviewpager.fragments.MoviesFragment;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.Item;
-import com.example.enc.nestedrecyclerviewusingviewpager.models.TabNamesResponse;
+import com.example.enc.nestedrecyclerviewusingviewpager.response.TabNamesResponse;
 import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.NestedRecyclerViewUsingViewPagerSDK;
 import com.example.enc.nestedrecyclerviewusingviewpager.nestedrecyclerviewusingviewpagersdk.Service;
 

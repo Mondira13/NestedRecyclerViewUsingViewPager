@@ -1,4 +1,4 @@
-package com.example.enc.nestedrecyclerviewusingviewpager;
+package com.example.enc.nestedrecyclerviewusingviewpager.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.enc.nestedrecyclerviewusingviewpager.R;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.ItemList;
 import com.example.enc.nestedrecyclerviewusingviewpager.models.SubList;
 import com.squareup.picasso.Picasso;
